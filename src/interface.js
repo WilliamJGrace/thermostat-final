@@ -1,19 +1,25 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
+  function updateTemperature(){
+    $('#current-temperature').text(thermostat.temperature);
+    $('#current-temperature').attr('class', thermostat.getCurrentUsage());
+  };
 
-  $('#current-temperature').text(thermostat.temperature);
 
+
+
+  updateTemperature();
   $('#temperature-up').click(function() {
     thermostat.up();
-    $('#current-temperature').text(thermostat.temperature);
+    updateTemperature();
   });
   $('#temperature-down').click(function() {
     thermostat.down();
-    $('#current-temperature').text(thermostat.temperature);
+    updateTemperature();
   });
   $('#temperature-reset').click(function() {
     thermostat.reset();
-    $('#current-temperature').text(thermostat.temperature);
+    updateTemperature();
   });
   $('#powersaving-on').click(function() {
     thermostat.switchOnPowerSaving();
@@ -23,6 +29,5 @@ $(document).ready(function() {
   $('#powersaving-off').click(function() {
     thermostat.switchOffPowerSaving();
     $('#power-saving-status').text("off");
-
   });
 });
