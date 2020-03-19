@@ -8,6 +8,7 @@
   <body>
     <section>
       <h1 id="thermostat">Thermostat</h1>
+      <h2><span id="current-temperature"></span></h2>
       <p>
         <button id="temperature-up">+</button><br>
         <button id="temperature-down">-</button><br>
@@ -16,26 +17,9 @@
         <button id="powersaving-on">PSM-on</button><br>
         <button id="powersaving-off">PSM-off</button>
       </p>
-    </section>    
+    </section>
   </body>
   <script src="./src/thermostat.js"></script>
-  <script src="./src/thermostat2.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script>
-      $('#temperature-up').click(function() { 
-        console.log("Temperature up");
-      });
-      $('#temperature-down').click(function() { 
-        console.log("Temperature down");
-      });
-      $('#temperature-reset').click(function() { 
-        console.log("Temperature reset");
-      });
-      $('#powersaving-on').click(function() { 
-        console.log("PSM-on");
-      });
-      $('#powersaving-off').click(function() { 
-        console.log("PSM-off");
-      });
-  </script>
+  <script src="./src/interface.js"></script>
 </html>
