@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'pg'
 
 
 class Thermostat < Sinatra::Base
@@ -8,7 +9,12 @@ class Thermostat < Sinatra::Base
  end
 
  get '/test' do
-   "Test"
+   connection = PG.connect(dbname: 'thermostat')
+   result = connection.exec("SELECT * FROM temperatures;")
+   p result
+   p result[0]['temperature']
+   return result[0]['temperature']
+
  end
 
 

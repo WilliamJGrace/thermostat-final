@@ -1,5 +1,9 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
+  $.get('/test',  // url
+      function (data) {  // success callback
+        thermostat.temperature = parseInt(data)
+    });
   function updateTemperature(){
     $('#current-temperature').text(thermostat.temperature);
     $('#current-temperature').attr('class', thermostat.getCurrentUsage());
@@ -18,10 +22,6 @@ $(document).ready(function() {
 
   };
 
-  $.get('/test',  // url
-      function (data) {  // success callback
-          $('#test-test').text(data)
-    });
 
 
 
