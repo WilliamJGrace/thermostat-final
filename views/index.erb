@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Thermostat</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="./src/thermostat.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="./src/interface.js"></script>
+  </head>
+
+  <body>
+    <h1 id="thermostat">Thermostat<span id="test-test"></span></h1>
+
+
+    <div class="container-1">
+      <div class="box-1">
+        <section>
+          <h2>Outside temperature: <span id="outside-temperature"></span>°C</h2>
+          <h3>Outside weather:<span id="outside-weather"></span></h3>
+          <select id="current-city">
+            <option value="london">London</option>
+            <option value="taipei">Taipei</option>
+            <option value="paris">Paris</option>
+            <option value="tokyo">Tokyo</option>
+            <option value="dewlish">Dewlish</option>
+          </select>
+        </section>
+    </div>
+
+    <div class="box-2">
+      <section>
+          <h2>Inside Temperature:<span id="current-temperature"></span>°C</h2>
+     </section>
+   </div>
+
+
+
+         <div class="box-3">
+           <section>
+            <p><i  id='temperature-up' class="arrow up"></i></p>
+            <p><i  id='temperature-down' class="arrow down"></i></p>
+          </section>
+          <section>
+
+            <button id="temperature-reset">reset</button><br>
+            power saving mode is <span id="power-saving-status">on</span><br>
+            <button id="powersaving-on">PSM-on</button><br>
+            <button id="powersaving-off">PSM-off</button>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

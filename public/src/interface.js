@@ -12,8 +12,18 @@ $(document).ready(function() {
     $.get(url + token + units, function(data) {
       $('#outside-temperature').text(data.main.temp);
     });
+    $.get(url + token + units, function(data) {
+      $('#outside-weather').text(data.weather[0].main);
+    });
 
   };
+
+  $.get('/test',  // url
+      function (data) {  // success callback
+          $('#test-test').text(data)
+    });
+
+
 
 
 
@@ -30,6 +40,11 @@ $(document).ready(function() {
 
   updateTemperature();
   $('#temperature-up').click(function() {
+    // $.ajax({
+    //  type: 'get',
+    //  url: '/test',
+    //
+
     thermostat.up();
     updateTemperature();
   });
