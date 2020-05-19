@@ -3,7 +3,7 @@ require 'sinatra/base'
 class ThermostatApp < Sinatra::Base
 
     get '/' do
-        "hi"
+        File.read('public/index.html')
     end
 
     run! if app_file == $0
