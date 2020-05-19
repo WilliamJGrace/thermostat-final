@@ -1,9 +1,26 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  $.get('/test',  // url
-      function (data) {  // success callback
-        thermostat.temperature = parseInt(data)
-    });
+  response = $.ajax({
+	  crossOrigin: true,
+	  url: '/test',
+	  //dataType: "json", //no need. if you use crossOrigin, the dataType will be override with "json"
+	  context: {},
+	  success: function(data) {
+		  data.responseText
+		}
+	})
+  // var response = $.get('/test',  // url
+  //     function (data) {
+  //        // success callback
+  //
+  //   });
+    console.log(response)
+    console.log(response.responseText)
+
+    thermostat.temperature = parseInt(response.responseText)
+    console.log(thermostat)
+    console.log(thermostat.temperature)
+    console.log(response.responseText)
   function updateTemperature(){
     $('#current-temperature').text(thermostat.temperature);
     $('#current-temperature').attr('class', thermostat.getCurrentUsage());
