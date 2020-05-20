@@ -11,8 +11,11 @@ function Thermostat() {
 }
 
 
-Thermostat.prototype.getCurrentTemperature = function() {
-  return this.temperature;
+Thermostat.prototype.getCurrentTemperature = function(callback) {
+  $.get('/temperature', function(data) {
+    var roomTemp = JSON.parse(data)
+    callback(roomTemp)
+  })
 }
 
 Thermostat.prototype.up = function() {
@@ -67,3 +70,7 @@ Thermostat.prototype.getCurrentUsage = function () {
   return "high-usage"
 
 };
+
+Thermostat.prototype._updateTemp = function() {
+
+}

@@ -1,8 +1,10 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
   function updateTemperature(){
-    $('#current-temperature').text(thermostat.temperature);
-    $('#current-temperature').attr('class', thermostat.getCurrentUsage());
+    thermostat.getCurrentTemperature(function(data) {
+      $('#current-temperature').text(data.temperature);
+      $('#current-temperature').attr('class', thermostat.getCurrentUsage());
+    })
   };
 
   function displayWeather(city) {
