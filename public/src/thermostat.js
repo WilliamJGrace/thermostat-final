@@ -3,7 +3,7 @@
 function Thermostat() {
   this.MINIMUM_TEMPERATURE = 10;
   this.DEFAULT_TEMPERATURE = 20
-  this.MAX_LIMIT_PSM_ON = 25;
+  this.MAX_LIMIT_PSM_ON = 20;
   this.MAX_LIMIT_PSM_OFF = 32;
   this.MEDIUM_ENERGY_USAGE_LIMIT = 18
   this.temperature = this.DEFAULT_TEMPERATURE;
@@ -18,11 +18,14 @@ Thermostat.prototype.getCurrentTemperature = function(callback) {
   })
 }
 
-Thermostat.prototype.up = function() {
-  if (this.isMaximumTemperature()) {
-      return;
-    };
-  this.temperature += 1;
+Thermostat.prototype.up = function(currentTemperature, callback) {
+  // if (this.isMaximumTemperature()) {
+  //     return;
+  //   };
+  // this.temperature += 1;
+  console.log("IM BEING CALLED ")
+  this._updateTemp(currentTemperature + 1, callback)
+
 };
 
 Thermostat.prototype.down = function () {
@@ -71,6 +74,8 @@ Thermostat.prototype.getCurrentUsage = function () {
 
 };
 
-Thermostat.prototype._updateTemp = function() {
-
+Thermostat.prototype._updateTemp = function(value, callback) {
+  $.post('/temperature', { temperature: value }, callback)
+  console.log(value)
+    
 }

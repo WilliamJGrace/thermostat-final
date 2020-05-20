@@ -32,7 +32,10 @@ $(document).ready(function() {
 
   updateTemperature();
   $('#temperature-up').click(function() {
-    thermostat.up();
+    var currentTemperature = parseInt($('#current-temperature').text())
+    console.log(currentTemperature)
+
+    thermostat.up(currentTemperature, updateTemperature);
     updateTemperature();
   });
   $('#temperature-down').click(function() {
