@@ -3,6 +3,14 @@ $(document).ready(function() {
   function updateTemperature(){
     thermostat.getCurrentTemperature(function(data) {
       $('#current-temperature').text(data.temperature);
+      console.log(data)
+      if (data.powerSavingMode === false) {
+        console.log("HEY WADDUP")
+        thermostat.switchOffPowerSaving();
+        $('#power-saving-status').text("off");
+
+      }
+
       $('#current-temperature').attr('class', thermostat.getCurrentUsage());
     })
   };
