@@ -36,10 +36,13 @@ $(document).ready(function() {
     console.log(currentTemperature)
 
     thermostat.up(currentTemperature, updateTemperature);
-    updateTemperature();
+    // updateTemperature();
   });
   $('#temperature-down').click(function() {
-    thermostat.down();
+    var currentTemperature = parseInt($('#current-temperature').text())
+    console.log(currentTemperature)
+
+    thermostat.down(currentTemperature, updateTemperature);
     updateTemperature();
   });
   $('#temperature-reset').click(function() {

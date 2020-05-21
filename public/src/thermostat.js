@@ -28,11 +28,12 @@ Thermostat.prototype.up = function(currentTemperature, callback) {
 
 };
 
-Thermostat.prototype.down = function () {
-  if (this.isMinimumTemperature()) {
-   return;
-  }
-  this.temperature -= 1;
+Thermostat.prototype.down = function(currentTemperature, callback) {
+  // if (this.isMinimumTemperature()) {
+  //  return;
+  // }
+  console.log("pressed down")
+  this._updateTemp(currentTemperature - 1, callback)
 };
 
 Thermostat.prototype.isMinimumTemperature = function() {
