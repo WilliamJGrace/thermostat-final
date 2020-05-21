@@ -29,15 +29,15 @@ Thermostat.prototype.up = function(currentTemperature, callback) {
 };
 
 Thermostat.prototype.down = function(currentTemperature, callback) {
-  // if (this.isMinimumTemperature(currentTemperature - 1)) {
-  //  return;
-  // }
+  if (this.isMinimumTemperature(currentTemperature)) {
+   return;
+  }
   console.log("pressed down")
   this._updateTemp(currentTemperature - 1, callback)
 };
 
-Thermostat.prototype.isMinimumTemperature = function() {
-  return this.temperature === this.MINIMUM_TEMPERATURE;
+Thermostat.prototype.isMinimumTemperature = function(currentTemperature) {
+  return currentTemperature === this.MINIMUM_TEMPERATURE;
 };
 
 Thermostat.prototype.isPowerSavingModeOn = function() {
