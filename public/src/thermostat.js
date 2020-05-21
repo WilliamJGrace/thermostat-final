@@ -3,7 +3,7 @@
 function Thermostat() {
   this.MINIMUM_TEMPERATURE = 10;
   this.DEFAULT_TEMPERATURE = 20
-  this.MAX_LIMIT_PSM_ON = 20;
+  this.MAX_LIMIT_PSM_ON = 25;
   this.MAX_LIMIT_PSM_OFF = 32;
   this.MEDIUM_ENERGY_USAGE_LIMIT = 18
   this.temperature = this.DEFAULT_TEMPERATURE;
@@ -60,8 +60,9 @@ Thermostat.prototype.isMaximumTemperature = function(currentTemperature) {
     return currentTemperature === this.MAX_LIMIT_PSM_ON
 };
 
-Thermostat.prototype.reset = function () {
-  this.temperature = this.DEFAULT_TEMPERATURE
+Thermostat.prototype.reset = function (callback) {
+  // this.temperature = this.DEFAULT_TEMPERATURE
+  this._updateTemp(this.DEFAULT_TEMPERATURE, callback)
 
 };
 

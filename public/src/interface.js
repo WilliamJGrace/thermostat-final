@@ -43,11 +43,11 @@ $(document).ready(function() {
     console.log(currentTemperature)
 
     thermostat.down(currentTemperature, updateTemperature);
-    updateTemperature();
+    // updateTemperature();
   });
   $('#temperature-reset').click(function() {
-    thermostat.reset();
-    updateTemperature();
+    thermostat.reset(updateTemperature);
+    // updateTemperature();
   });
   $('#powersaving-on').click(function() {
     thermostat.switchOnPowerSaving();
