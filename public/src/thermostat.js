@@ -19,9 +19,9 @@ Thermostat.prototype.getCurrentTemperature = function(callback) {
 }
 
 Thermostat.prototype.up = function(currentTemperature, callback) {
-  // if (this.isMaximumTemperature()) {
-  //     return;
-  //   };
+  if (this.isMaximumTemperature(currentTemperature)) {
+      return;
+    };
   // this.temperature += 1;
   console.log("IM BEING CALLED ")
   this._updateTemp(currentTemperature + 1, callback)
@@ -29,7 +29,7 @@ Thermostat.prototype.up = function(currentTemperature, callback) {
 };
 
 Thermostat.prototype.down = function(currentTemperature, callback) {
-  // if (this.isMinimumTemperature()) {
+  // if (this.isMinimumTemperature(currentTemperature - 1)) {
   //  return;
   // }
   console.log("pressed down")
@@ -52,11 +52,12 @@ Thermostat.prototype.switchOnPowerSaving = function() {
   this.powerSavingMode = true;
 };
 
-Thermostat.prototype.isMaximumTemperature = function() {
+Thermostat.prototype.isMaximumTemperature = function(currentTemperature) {
   if (this.isPowerSavingModeOn() === false){
-    return this.temperature === this.MAX_LIMIT_PSM_OFF;
+    return currentTemperature === this.MAX_LIMIT_PSM_OFF;
   }
-    return this.temperature === this.MAX_LIMIT_PSM_ON;
+    // return this.temperature === this.MAX_LIMIT_PSM_ON;
+    return currentTemperature === this.MAX_LIMIT_PSM_ON
 };
 
 Thermostat.prototype.reset = function () {
@@ -77,6 +78,5 @@ Thermostat.prototype.getCurrentUsage = function () {
 
 Thermostat.prototype._updateTemp = function(value, callback) {
   $.post('/temperature', { temperature: value }, callback)
-  console.log(value)
     
 }
