@@ -44,9 +44,10 @@ Thermostat.prototype.isPowerSavingModeOn = function() {
   return this.powerSavingMode === true;
 };
 
-Thermostat.prototype.switchOffPowerSaving = function() {
-  this.powerSavingMode = false;
-};
+Thermostat.prototype.switchOffPowerSaving = function(currentPowerSavingMode, callback) {
+  // this.powerSavingMode = false;
+  this._updatePowerSavingMode(currentPowerSavingMode, callback)
+}
 
 Thermostat.prototype.switchOnPowerSaving = function() {
   this.powerSavingMode = true;
@@ -78,6 +79,11 @@ Thermostat.prototype.getCurrentUsage = function () {
 };
 
 Thermostat.prototype._updateTemp = function(value, callback) {
-  $.post('/temperature', { temperature: value }, callback)
+  $.post('/temperature', { temperature: value}, callback)
     
+}
+
+Thermostat.prototype._updatePowerSavingMode = function(powerSavingMode, callback) {
+  console.log("I  GOT CALLED YO")
+  $.post('/temperature', { powerSavingMode: powerSavingMode }, callback)
 }

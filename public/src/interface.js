@@ -5,10 +5,8 @@ $(document).ready(function() {
       $('#current-temperature').text(data.temperature);
       console.log(data)
       if (data.powerSavingMode === false) {
-        console.log("HEY WADDUP")
         thermostat.switchOffPowerSaving();
         $('#power-saving-status').text("off");
-
       }
 
       $('#current-temperature').attr('class', thermostat.getCurrentUsage());
@@ -63,7 +61,10 @@ $(document).ready(function() {
 
   });
   $('#powersaving-off').click(function() {
-    thermostat.switchOffPowerSaving();
+    var currentPowerSavingMode = "on" === parseInt($('#power-saving-status').text())
+    console.log(currentPowerSavingMode)
+
+    thermostat.switchOffPowerSaving(currentPowerSavingMode, updateTemperature);
     $('#power-saving-status').text("off");
   });
 });
