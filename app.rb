@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'json'
 require_relative './lib/thermostat.rb'
 
-
 class ThermostatApp < Sinatra::Base
 
     get '/' do
