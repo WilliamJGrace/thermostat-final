@@ -1,6 +1,20 @@
-# thermostat
+# My Thermostat
 
 A basic thermostat app. Initially written with JavaScript and some Jquery. I decided to create a ruby backend so that the user was able to revisit the page without the temperature being reset.
+
+There is also a power-saving-mode that, when turned on, prevents the user setting the thermostat above 25.
+
+I also used the OpenWeatherAPI so that the user can see the outside temperature when deciding to set their thermostat.
+
+## How To Run
+
+Clone the repo
+```
+cd thermostat-final
+bundle install
+ruby app.rb
+```
+Then visit localhost 4567 in your browser of choice
 
 ## User stories ##
 
