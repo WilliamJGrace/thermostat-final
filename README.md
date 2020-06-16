@@ -1,5 +1,7 @@
 # thermostat
 
+A basic thermostat app. Initially written with JavaScript and some Jquery. I decided to create a ruby backend so that the user was able to revisit the page without the temperature being reset.
+
 ## User stories ##
 
 1. Thermostat starts at 20 degrees
